@@ -1,0 +1,177 @@
+
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <style>    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <span class="navbar-brand" href="#">{{> login}}</span>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+	{{#if currentUser}}
+      <ul class="nav navbar-nav">
+        <li id = "del_comments" class="active"><a href="#">Delete Comments</a></li>
+        <li  id = "del_posts" class="active"><a href="#">Delete Posts</a></li>
+      </ul>
+	 {{/if}}
+      <ul class="nav navbar-nav navbar-right">
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{{#if currentUser}}
+<div class="container">    
+  <div class="row">
+  <div class="col-sm-12">
+	<form class="new-task">
+		 <div class="input-group" style = "margin-bottom:50px">
+			<span class="input-group-addon" style="
+    padding-bottom: 20px;
+    padding-top: 20px;
+"><b>START A NEW POST</b></span>
+			<input style = "height:59px" id="msg" type="text" class="form-control" name="text" placeholder="Start typing here...">
+		  </div>
+    </form>
+	</div><br>
+	<span style ="display:none" id = "sorry" ><h1>Sorry ,no posts to show; start out your own discussion by typing in the box above!</h1></span>
+  {{#each tasks}}
+    <div style = "margin-top:50px" class="col-sm-12">
+      <div class="row">
+		
+        <div class="col-sm-12">
+          <div class="panel panel-default text-left">
+            <div class="panel-body">
+              <p style = "word-wrap: break-word">{{> task}}</p>   
+            </div>		
+          </div>  
+        </div>
+		<div class="col-sm-12">
+		  <h5 class = "comments" style="cursor:pointer" ><a><span class="text-primary">Comment</span></a></h5>
+	  <form style ="display:none" id = {{_id}} class="new-comment">
+		
+        <input  style = "margin-bottom:20px" class = "form-control comments_input" type="text" name="text" placeholder="Type to add a comment" />
+      </form>
+	  </div>
+      </div>
+	  
+	 
+      {{#each comments}}
+		{{> del_b}}
+	 
+      <div class="row">
+	  
+        <div class="col-sm-2">
+		
+          <div class="well">
+		  
+           <p><b>{{email}}</b></p>
+          </div>
+        </div>
+        <div class="col-sm-10">
+          <div class="well text_comment">
+            <p style = "word-wrap: break-word">{{text}}</p>
+          </div> 
+        </div>
+      </div>
+	  {{/each}}
+       
+    </div>
+	<hr>
+	{{/each}}
+	
+  </div>
+</div>
+{{else}}
+
+	<div class="container">
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+      {{> image}}
+      </div>
+
+      <div id = "img2" class="item">
+		
+        {{> image2}}
+      </div>
+    
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+
+{{/if}}
+
+</body>
+
+
+  <!--div class="container">
+    <header>
+		{{> login}}
+		<br>
+      <h1>Discussion Board</h1>
+	    {{#if currentUser}}
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<input id = "del_comments" style ="float:right" type="button" class ="btn-primary" value="Delete comments"/>
+				<input id = "del_posts" style ="float:right" type="button" class ="btn-primary" value="Delete Posts"/>
+			</div>
+		</nav>
+	   <form class="new-task">
+        <input type="text" name="text" placeholder="Type to start a discussion" />
+      </form>
+	  {{/if}}
+    </header>
+	
+    {{#if currentUser}}
+    <ul>
+      {{#each tasks}}
+		{{> task}}
+	  {{/each}}
+	 
+    </ul>
+	{{/if}}
+  </div-->
+
+ 
+
+
+

@@ -1,0 +1,16 @@
+#msg{
+	font-size:35px;
+}
+body{
+	background-color:#e9ebee;
+}
+.well{
+	word-wrap:break-word;
+	padding:4px;
+	margin-bottom:0px;
+	border-color:#4f9ecc;
+}
+
+.text_comment{
+	background-color:#fffbec;
+}

@@ -1,0 +1,28 @@
+
+
+<template name="task">
+{{#if isOwner}}
+		<button style = "display:none" class="btn-xs btn-danger del_task">&times;</button> 
+	{{/if}}
+	
+    <span class="text"><i><b>{{email}}</b><br>({{createdAt}})</i><b class = "text-primary"><h1>{{text}}</h1></b></span>
+	<!-- {{> user_comments}}-->
+	<!--{{> comment}}-->
+ 
+</template>
+
+
+<template name = "del_b">
+{{#if isOwner}}
+ <button style = "display:none" class="btn-danger delete">&times;</button> 
+ {{/if}}
+
+</template>
+
+<template name = "image">
+<img style = "height:500px;width:1000px" id = "img1" src = "Discussion-Board-Banner.jpg" />
+</template>
+
+<template name = "image2">
+<img style = "height:500px;width:1000px" src = "dis.jpg" />
+</template>

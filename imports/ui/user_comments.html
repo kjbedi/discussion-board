@@ -1,0 +1,20 @@
+<template name ="user_comments">
+	<ul>
+	{{#each comments}}
+		<li class="comm_li"><b><i class="text-success">{{email}}</i></b>-{{text}}
+		{{#if isOwner}}
+		 <button style = "display:none" class="delete">&times;</button> 
+		 {{/if}}
+		 </li>
+		
+	{{/each}}
+	</ul>
+</template>
+
+<template name="comment">
+   
+  <h5 class = "comments"><a><span class="text-primary">Comment</span></a></h5>
+  <form style ="display:none" id = {{_id}} class="new-comment">
+        <input  class = "form-control" type="text" name="text" placeholder="Type to add a comment" />
+      </form>
+</template>
